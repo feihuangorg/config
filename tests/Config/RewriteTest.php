@@ -1,6 +1,6 @@
 <?php
 
-use October\Rain\Config\Rewrite;
+use Feihuangorg\Config\Rewrite;
 
 class RewriteTest extends TestCase
 {
