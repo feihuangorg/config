@@ -1,0 +1,23 @@
+{
+    "name": "feihuangorg/config",
+    "description": "Config Writer for Laravel 5",
+    "keywords": ["laravel","config","writer","save","write"],
+    "authors": [
+        {
+            "name": "larry",
+            "email": "lifushui@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+        ],
+        "psr-0": {
+            "Feihuangorg\\Config\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
