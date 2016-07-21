@@ -1,52 +1,38 @@
-Config Writer for Laravel 4
+## Laravel Config Writer
 
-==================
+Write to Laravel Config files and maintain file integrity.
 
-[![Total Downloads](https://poser.pugx.org/rasim/config/downloads.svg)](https://packagist.org/packages/rasim/config) 
+This library is an extension of the Config component used by Laravel. It adds the ability to write to configuration files.
 
+You can rewrite array values inside a basic configuration file that returns a single array definition (like a Laravel config file) whilst maintaining the file integrity, leaving comments and advanced settings intact.
 
-Features by daftspunk/laravel-config-writer with additions by myself.
+The following value types are supported for writing: strings, integers, booleans and single-dimension arrays.
 
-For Laravel 5 original repo: https://github.com/daftspunk/laravel-config-writer
+### Usage Instructions
 
+Add this to `app/config/app.php` under the 'providers' key:
 
-Installation
-----
-
-* In composer.json;
-
-```json
-"rasim/config": "dev-master"
+```php
+'Feihuangorg\Config\ConfigServiceProvider',
 ```
 
-* In app.php
+You can now write to config files:
 
 ```php
-'Rasim\Config\ConfigWriterServiceProvider',
- ```
- 
-  
-Usage
-----
-
- ```php
-Config::write("__FILE.CONFIG__","__VALUE__","__FOLDER__");
- ```
- 
-  ```shell
-  __FOLDER__ (optional)
-  default path folder: config
-  ```
-
-Single Write
-```php
-Config::write("app.url","www.domain.com"); // path: config/app.php "url" editing.
-Config::write("app.url","www.domain.com","config"); //  path: config/app.php "url" editing.
-Config::write("reminders.sent","Sent Password!","lang/en"); // path: lang/en/reminders.php "sent" editing.
+Config::write('app.url', 'http://octobercms.com');
 ```
 
-Multi Write
+### Usage outside Laravel
+
+The `Rewrite` class can be used anywhere.
+
 ```php
-Config::write(["app.url","app.locale"],["www.domain.com","tr"]);
-Config::write(["reminders.sent","app.url"],["Sent Password!","www.domain.com"],["lang/en",""]);
+$writeConfig = new Feihuangorg\Config\Rewrite;
+$writeConfig->toFile('path/to/config.php', [
+    'item' => 'new value',
+    'nested.config.item' => 'value',
+    'arrayItem' => ['Single', 'Level', 'Array', 'Values'],
+    'numberItem' => 3,
+    'booleanItem' => true
+]);
 ```

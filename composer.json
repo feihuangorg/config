@@ -1,7 +1,9 @@
 {
     "name": "feihuangorg/config",
-    "description": "Config Writer for Laravel 5",
-    "keywords": ["laravel","config","writer","save","write"],
+    "description": "Configuration extension",
+    "homepage": "http://feihuang.org",
+    "keywords": ["october cms", "october", "laravel", "config", "write"],
+    "license": "MIT",
     "authors": [
         {
             "name": "larry",
@@ -10,14 +12,12 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "4.2.*"
+        "illuminate/config": "~5.0."
     },
     "autoload": {
-        "classmap": [
-        ],
-        "psr-0": {
-            "Feihuangorg\\Config\\": "src/"
+        "psr-4": {
+            "Feihuang\\Config\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
