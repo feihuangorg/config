@@ -1,4 +1,4 @@
-<?php namespace October\Rain\Config;
+<?php namespace Feihuangorg\Config;
 
 use Illuminate\Filesystem\Filesystem;
 

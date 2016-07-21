@@ -1,6 +1,6 @@
 <?php
 
-namespace October\Rain\Config;
+namespace Feihuangorg\Config;
 
 use Illuminate\Support\ServiceProvider;
 
