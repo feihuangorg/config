@@ -6,6 +6,18 @@ use Illuminate\Support\ServiceProvider;
 
 class ConfigServiceProvider extends ServiceProvider
 {
+
+
+    /**
+     * Bootstrap the application events.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->package('{{lower_vendor}}/{{lower_name}}');
+    }
+
     /**
      * Register the service provider.
      *
@@ -27,5 +39,15 @@ class ConfigServiceProvider extends ServiceProvider
         {
             return $app->make('Feihuangorg\Config\Repository', $config_items);
         });
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['FileWriter'];
     }
 }
